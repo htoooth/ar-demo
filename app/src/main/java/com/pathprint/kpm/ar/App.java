@@ -1,6 +1,7 @@
 package com.pathprint.kpm.ar;
 
 import android.app.Application;
+import android.preference.PreferenceManager;
 
 import org.artoolkit.ar.base.assets.AssetHelper;
 
@@ -23,6 +24,7 @@ public class App extends Application{
     }
 
     protected void initializeInstance(){
+        PreferenceManager.setDefaultValues(this,org.artoolkit.ar.base.R.xml.preferences,false);
         AssetHelper assetHelper = new AssetHelper(getAssets());
         assetHelper.cacheAssetFolder(getInstance(),"Data");
         assetHelper.cacheAssetFolder(getInstance(),"DataNFT");
